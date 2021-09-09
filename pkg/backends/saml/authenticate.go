@@ -69,12 +69,6 @@ func (b *Backend) Authenticate(r *requests.Request) error {
 		return fmt.Errorf("failed to parse ACS URL")
 	}
 
-	if b.Config.Provider == "azure" {
-		if !strings.Contains(r.Upstream.Request.Header.Get("Origin"), "login.microsoftonline.com") && !strings.Contains(r.Upstream.Request.Header.Get("Referer"), "windowsazure.com") {
-			return fmt.Errorf("Origin does not contain login.microsoftonline.com and Referer is not windowsazure.com")
-		}
-	}
-
 	sp, serviceProviderExists := b.serviceProviders[acsURL]
 	if !serviceProviderExists {
 		return fmt.Errorf("unsupported ACS URL %s", acsURL)

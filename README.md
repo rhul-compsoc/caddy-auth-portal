@@ -1465,25 +1465,24 @@ The below are the headers of the redirected `POST` request that the user's
 browser makes upon clicking "My Gatekeeper" application:
 
 ```
-Method: POST
-URL: /auth/saml/azure
-Protocol: HTTP/2.0
-Host: localhost:3443
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Accept-Encoding: gzip, deflate, br
-Accept-Language: en-US,en;q=0.9,ru;q=0.8
-Cache-Control: max-age=0
-Content-Length: 7561
+POST /auth/saml/azure HTTP/1.1
+Host: 127.0.0.1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-GB,en;q=0.5
+Accept-Encoding: gzip, deflate
 Content-Type: application/x-www-form-urlencoded
-Origin: https://login.microsoftonline.com
-Referer: https://login.microsoftonline.com/
+Content-Length: 6905
+Origin: null
+Connection: keep-alive
+Cookie: sort_method=state; AUTHP_SESSION_ID=MzlkXVvmSPIQOE1wfMdvWlgxbv2otr2FiGEJR6ZSp4Vd
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
 Sec-Fetch-Site: cross-site
-Upgrade-Insecure-Requests: 1
+Pragma: no-cache
+Cache-Control: no-cache
 ```
-
-The above redirect contains `login.microsoftonline.com` in the request's
-`Referer` header. It is the trigger to perform SAML-based authorization.
 
 [:arrow_up: Back to Top](#table-of-contents)
 
